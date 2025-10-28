@@ -4,7 +4,8 @@
   "scripts": {
     "build": "tsc",
     "format": "prettier . --write",
-    "start": "node src/index.ts"
+    "generate": "node scripts/generate.ts",
+    "publish": "node scripts/publish.ts"
   },
   "dependencies": {
     "@cdktf/cli-core": "^0.21.0",
@@ -17,6 +18,7 @@
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-packagejson": "^2.5.19",
     "prettier-plugin-sh": "^0.18.0",
+    "type-fest": "^5.1.0",
     "typescript": "^5.9.3"
   }
 }
