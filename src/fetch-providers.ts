@@ -7,8 +7,8 @@ const pageSize = 100 // maximum allowed by the API
 // Official providers get prebuilt npm packages by default
 const tiers = ['partner,community']
 
-// only fetch providers with more than 500k downloads. Pulled out of thin air.
-const downloadThreadhold = 500_000
+// only fetch community providers with more than 500k downloads. Pulled out of thin air.
+const communityTierDownloadThreshold = 500_000
 
 function createUrl(page: number): URL {
   const url = new URL(base)
@@ -27,7 +27,10 @@ export async function* fetchProviders(page = 0): AsyncGenerator<string> {
     return
   }
   for (const { attributes } of data) {
-    if (attributes.downloads > downloadThreadhold) {
+    if (
+      attributes.tier === 'partner' ||
+      attributes.downloads > communityTierDownloadThreshold
+    ) {
       yield attributes['full-name']
     }
   }

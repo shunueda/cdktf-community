@@ -18,7 +18,7 @@ export const providersResponseSchema = z.object({
         'repository-id': z.number().optional(),
         'robots-noindex': z.boolean(),
         source: z.string(),
-        tier: z.string(),
+        tier: z.enum(['official', 'partner', 'community']),
         unlisted: z.boolean(),
         warning: z.string()
       }),
