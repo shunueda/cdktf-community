@@ -1,3 +1,0 @@
-# `solidserver_vlan_domain`
-
-Refer to the Terraform Registry for docs: [`solidserver_vlan_domain`](https://registry.terraform.io/providers/efficientip-labs/solidserver/1.1.25/docs/resources/vlan_domain).

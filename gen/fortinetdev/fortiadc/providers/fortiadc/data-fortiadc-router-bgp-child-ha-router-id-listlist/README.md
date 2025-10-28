@@ -1,3 +1,0 @@
-# `data_fortiadc_router_bgp_child_ha_router_id_listlist`
-
-Refer to the Terraform Registry for docs: [`data_fortiadc_router_bgp_child_ha_router_id_listlist`](https://registry.terraform.io/providers/fortinetdev/fortiadc/1.3.0/docs/data-sources/router_bgp_child_ha_router_id_listlist).

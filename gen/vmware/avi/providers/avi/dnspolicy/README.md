@@ -1,3 +1,0 @@
-# `avi_dnspolicy`
-
-Refer to the Terraform Registry for docs: [`avi_dnspolicy`](https://registry.terraform.io/providers/vmware/avi/31.1.1/docs/resources/dnspolicy).

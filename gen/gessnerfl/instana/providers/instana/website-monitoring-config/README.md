@@ -1,3 +1,0 @@
-# `instana_website_monitoring_config`
-
-Refer to the Terraform Registry for docs: [`instana_website_monitoring_config`](https://registry.terraform.io/providers/gessnerfl/instana/3.0.0/docs/resources/website_monitoring_config).

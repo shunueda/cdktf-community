@@ -1,3 +1,0 @@
-# `edgecenter_protection_resource_whitelist_entry`
-
-Refer to the Terraform Registry for docs: [`edgecenter_protection_resource_whitelist_entry`](https://registry.terraform.io/providers/edge-center/edgecenter/0.10.3/docs/resources/protection_resource_whitelist_entry).

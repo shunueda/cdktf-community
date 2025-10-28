@@ -1,3 +1,0 @@
-# `opal_group`
-
-Refer to the Terraform Registry for docs: [`opal_group`](https://registry.terraform.io/providers/opalsecurity/opal/3.3.2/docs/resources/group).

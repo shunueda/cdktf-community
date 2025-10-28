@@ -1,3 +1,0 @@
-# `data_fortiadc_system_isp_addr_child_address`
-
-Refer to the Terraform Registry for docs: [`data_fortiadc_system_isp_addr_child_address`](https://registry.terraform.io/providers/fortinetdev/fortiadc/1.3.0/docs/data-sources/system_isp_addr_child_address).

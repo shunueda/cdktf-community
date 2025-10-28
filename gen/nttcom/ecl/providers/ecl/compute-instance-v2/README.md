@@ -1,3 +1,0 @@
-# `ecl_compute_instance_v2`
-
-Refer to the Terraform Registry for docs: [`ecl_compute_instance_v2`](https://registry.terraform.io/providers/nttcom/ecl/2.12.1/docs/resources/compute_instance_v2).

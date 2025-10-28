@@ -1,3 +1,0 @@
-# `data_oci_database_execution_window`
-
-Refer to the Terraform Registry for docs: [`data_oci_database_execution_window`](https://registry.terraform.io/providers/oracle/oci/7.23.0/docs/data-sources/database_execution_window).

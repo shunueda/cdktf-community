@@ -1,3 +1,0 @@
-# `fortiadc_load_balance_compression_child_content_types`
-
-Refer to the Terraform Registry for docs: [`fortiadc_load_balance_compression_child_content_types`](https://registry.terraform.io/providers/fortinetdev/fortiadc/1.3.0/docs/resources/load_balance_compression_child_content_types).

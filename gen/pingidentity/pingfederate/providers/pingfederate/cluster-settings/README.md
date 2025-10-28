@@ -1,3 +1,0 @@
-# `pingfederate_cluster_settings`
-
-Refer to the Terraform Registry for docs: [`pingfederate_cluster_settings`](https://registry.terraform.io/providers/pingidentity/pingfederate/1.6.2/docs/resources/cluster_settings).

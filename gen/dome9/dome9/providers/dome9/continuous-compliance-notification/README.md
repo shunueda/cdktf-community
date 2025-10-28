@@ -1,3 +1,0 @@
-# `dome9_continuous_compliance_notification`
-
-Refer to the Terraform Registry for docs: [`dome9_continuous_compliance_notification`](https://registry.terraform.io/providers/dome9/dome9/1.40.3/docs/resources/continuous_compliance_notification).

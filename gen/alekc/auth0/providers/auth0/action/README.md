@@ -1,3 +1,0 @@
-# `auth0_action`
-
-Refer to the Terraform Registry for docs: [`auth0_action`](https://registry.terraform.io/providers/alekc/auth0/1.1.3/docs/resources/action).

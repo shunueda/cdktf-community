@@ -1,3 +1,0 @@
-# `data_vcd_nsxv_application_finder`
-
-Refer to the Terraform Registry for docs: [`data_vcd_nsxv_application_finder`](https://registry.terraform.io/providers/vmware/vcd/3.14.1/docs/data-sources/nsxv_application_finder).
