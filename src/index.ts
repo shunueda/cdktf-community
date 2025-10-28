@@ -18,8 +18,8 @@ await Promise.all(
               codeMakerOutput: join('gen', name)
             }
           })
-        } catch {
-          console.warn(`Failed to generate provider ${name}`)
+        } catch (e) {
+          console.warn(`Failed to generate provider ${name}: ${e}`)
         }
       },
       // pulled out of thin air; could be adjusted, but it seems to work fine
