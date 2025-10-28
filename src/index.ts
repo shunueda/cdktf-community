@@ -24,7 +24,7 @@ await Promise.all(
       },
       // pulled out of thin air; could be adjusted, but it seems to work fine
       // limit too high causes out of disk space errors on GitHub Actions
-      { concurrency: 20 }
+      { concurrency: 5 }
     )
   )
 )
