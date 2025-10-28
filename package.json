@@ -1,6 +1,9 @@
 {
   "name": "cdktf-community",
   "type": "module",
+  "workspaces": [
+    "gen/**"
+  ],
   "scripts": {
     "build": "tsc",
     "format": "prettier . --write",

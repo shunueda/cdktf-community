@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "composite": true,
+    "composite": false,
     "target": "es2022",
     "lib": ["esnext"],
     "module": "nodenext",
