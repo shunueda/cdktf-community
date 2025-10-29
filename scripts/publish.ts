@@ -84,13 +84,10 @@ for (const namespaceDir of await readdir(config.genDir)) {
       },
       { Arborist }
     )
-    const tarData = await readFile(tmpTarPath)
-    await publish(manifest as any, tarData, {
-      forceAuth: { token: env.NPM_TOKEN }
-    })
-    // FIXME - type is wrong in libnpmpublish
+    const tarball = await readFile(tmpTarPath)
     try {
-      await publish(manifest as any, tarData, {
+      // FIXME - type is wrong in libnpmpublish
+      await publish(manifest as any, tarball, {
         provenance: true,
         forceAuth: {
           token: env.NPM_TOKEN
