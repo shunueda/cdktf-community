@@ -1,4 +1,4 @@
-// https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email
+// https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -8,62 +8,66 @@ import * as cdktf from 'cdktf';
 
 export interface MonitorNotificationChannelTeamEmailConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#enabled MonitorNotificationChannelTeamEmail#enabled}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#enabled MonitorNotificationChannelTeamEmail#enabled}
   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#id MonitorNotificationChannelTeamEmail#id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#id MonitorNotificationChannelTeamEmail#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#name MonitorNotificationChannelTeamEmail#name}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#include_admin_users MonitorNotificationChannelTeamEmail#include_admin_users}
+  */
+  readonly includeAdminUsers?: boolean | cdktf.IResolvable;
+  /**
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#name MonitorNotificationChannelTeamEmail#name}
   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#notify_when_ok MonitorNotificationChannelTeamEmail#notify_when_ok}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#notify_when_ok MonitorNotificationChannelTeamEmail#notify_when_ok}
   */
   readonly notifyWhenOk?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#notify_when_resolved MonitorNotificationChannelTeamEmail#notify_when_resolved}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#notify_when_resolved MonitorNotificationChannelTeamEmail#notify_when_resolved}
   */
   readonly notifyWhenResolved?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#send_test_notification MonitorNotificationChannelTeamEmail#send_test_notification}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#send_test_notification MonitorNotificationChannelTeamEmail#send_test_notification}
   */
   readonly sendTestNotification?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#share_with_current_team MonitorNotificationChannelTeamEmail#share_with_current_team}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#share_with_current_team MonitorNotificationChannelTeamEmail#share_with_current_team}
   */
   readonly shareWithCurrentTeam?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#team_id MonitorNotificationChannelTeamEmail#team_id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#team_id MonitorNotificationChannelTeamEmail#team_id}
   */
   readonly teamId: number;
   /**
   * timeouts block
   *
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#timeouts MonitorNotificationChannelTeamEmail#timeouts}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#timeouts MonitorNotificationChannelTeamEmail#timeouts}
   */
   readonly timeouts?: MonitorNotificationChannelTeamEmailTimeouts;
 }
 export interface MonitorNotificationChannelTeamEmailTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#create MonitorNotificationChannelTeamEmail#create}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#create MonitorNotificationChannelTeamEmail#create}
   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#delete MonitorNotificationChannelTeamEmail#delete}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#delete MonitorNotificationChannelTeamEmail#delete}
   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#read MonitorNotificationChannelTeamEmail#read}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#read MonitorNotificationChannelTeamEmail#read}
   */
   readonly read?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#update MonitorNotificationChannelTeamEmail#update}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#update MonitorNotificationChannelTeamEmail#update}
   */
   readonly update?: string;
 }
@@ -244,7 +248,7 @@ export class MonitorNotificationChannelTeamEmailTimeoutsOutputReference extends 
 }
 
 /**
-* Represents a {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email sysdig_monitor_notification_channel_team_email}
+* Represents a {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email sysdig_monitor_notification_channel_team_email}
 */
 export class MonitorNotificationChannelTeamEmail extends cdktf.TerraformResource {
 
@@ -260,7 +264,7 @@ export class MonitorNotificationChannelTeamEmail extends cdktf.TerraformResource
   * Generates CDKTF code for importing a MonitorNotificationChannelTeamEmail resource upon running "cdktf plan <stack-name>"
   * @param scope The scope in which to define this construct
   * @param importToId The construct id used in the generated config for the MonitorNotificationChannelTeamEmail to import
-  * @param importFromId The id of the existing MonitorNotificationChannelTeamEmail that should be imported. Refer to the {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email#import import section} in the documentation of this resource for the id to use
+  * @param importFromId The id of the existing MonitorNotificationChannelTeamEmail that should be imported. Refer to the {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email#import import section} in the documentation of this resource for the id to use
   * @param provider? Optional instance of the provider where the MonitorNotificationChannelTeamEmail to import is found
   */
   public static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider) {
@@ -272,7 +276,7 @@ export class MonitorNotificationChannelTeamEmail extends cdktf.TerraformResource
   // ===========
 
   /**
-  * Create a new {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.0.1/docs/resources/monitor_notification_channel_team_email sysdig_monitor_notification_channel_team_email} Resource
+  * Create a new {@link https://registry.terraform.io/providers/sysdiglabs/sysdig/3.1.0/docs/resources/monitor_notification_channel_team_email sysdig_monitor_notification_channel_team_email} Resource
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
@@ -283,7 +287,7 @@ export class MonitorNotificationChannelTeamEmail extends cdktf.TerraformResource
       terraformResourceType: 'sysdig_monitor_notification_channel_team_email',
       terraformGeneratorMetadata: {
         providerName: 'sysdig',
-        providerVersion: '3.0.1'
+        providerVersion: '3.1.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -295,6 +299,7 @@ export class MonitorNotificationChannelTeamEmail extends cdktf.TerraformResource
     });
     this._enabled = config.enabled;
     this._id = config.id;
+    this._includeAdminUsers = config.includeAdminUsers;
     this._name = config.name;
     this._notifyWhenOk = config.notifyWhenOk;
     this._notifyWhenResolved = config.notifyWhenResolved;
@@ -338,6 +343,22 @@ export class MonitorNotificationChannelTeamEmail extends cdktf.TerraformResource
   // Temporarily expose input value. Use with caution.
   public get idInput() {
     return this._id;
+  }
+
+  // include_admin_users - computed: false, optional: true, required: false
+  private _includeAdminUsers?: boolean | cdktf.IResolvable; 
+  public get includeAdminUsers() {
+    return this.getBooleanAttribute('include_admin_users');
+  }
+  public set includeAdminUsers(value: boolean | cdktf.IResolvable) {
+    this._includeAdminUsers = value;
+  }
+  public resetIncludeAdminUsers() {
+    this._includeAdminUsers = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get includeAdminUsersInput() {
+    return this._includeAdminUsers;
   }
 
   // name - computed: false, optional: false, required: true
@@ -459,6 +480,7 @@ export class MonitorNotificationChannelTeamEmail extends cdktf.TerraformResource
     return {
       enabled: cdktf.booleanToTerraform(this._enabled),
       id: cdktf.stringToTerraform(this._id),
+      include_admin_users: cdktf.booleanToTerraform(this._includeAdminUsers),
       name: cdktf.stringToTerraform(this._name),
       notify_when_ok: cdktf.booleanToTerraform(this._notifyWhenOk),
       notify_when_resolved: cdktf.booleanToTerraform(this._notifyWhenResolved),
@@ -482,6 +504,12 @@ export class MonitorNotificationChannelTeamEmail extends cdktf.TerraformResource
         isBlock: false,
         type: "simple",
         storageClassType: "string",
+      },
+      include_admin_users: {
+        value: cdktf.booleanToHclTerraform(this._includeAdminUsers),
+        isBlock: false,
+        type: "simple",
+        storageClassType: "boolean",
       },
       name: {
         value: cdktf.stringToHclTerraform(this._name),

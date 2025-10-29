@@ -18,7 +18,7 @@ export const providersResponseSchema = z.object({
         'repository-id': z.number().optional(),
         'robots-noindex': z.boolean(),
         source: z.string(),
-        tier: z.string(),
+        tier: z.enum(['official', 'partner', 'community']),
         unlisted: z.boolean(),
         warning: z.string()
       }),
@@ -44,3 +44,9 @@ export const providersResponseSchema = z.object({
     })
   })
 })
+
+export const semverStringSchema = z
+  .string()
+  .regex(
+    /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/
+  )
