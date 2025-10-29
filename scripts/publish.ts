@@ -47,7 +47,6 @@ function compile(filenames: string[], outdir: string) {
     module: ModuleKind.ES2022,
     declaration: true,
     sourceMap: true,
-    declarationMap: true,
     rootDir: join(outdir, 'providers'),
     outDir: join(outdir, 'dist'),
     noCheck: true
