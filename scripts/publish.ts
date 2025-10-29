@@ -48,7 +48,29 @@ function compile(filenames: string[], outdir: string) {
     outDir: join(outdir, 'dist'),
     noCheck: true
   })
-  return program.emit()
+  const result = program.emit()
+  try {
+    const sourceFiles = program.getSourceFiles()
+    for (const sf of sourceFiles) {
+      ;(sf as any).text = ''
+      ;(sf as any).statements = []
+      ;(sf as any).locals = undefined
+      ;(sf as any).symbol = undefined
+      ;(sf as any).imports = undefined
+      ;(sf as any).identifiers = undefined
+      ;(sf as any).resolvedModules = undefined
+    }
+    const checker = program.getTypeChecker()
+    if (checker) {
+      ;(checker as any).symbolTable = undefined
+      ;(checker as any).typeCache = undefined
+      ;(checker as any).resolvedModules = undefined
+    }
+  } catch (err) {
+    console.warn('[WARN] AST cleanup failed:', err)
+  }
+  global.gc?.()
+  return result
 }
 
 console.log(`[INIT] Starting publish script`)
@@ -84,9 +106,7 @@ for (const namespaceDir of await readdir(config.genDir)) {
     logMem('before-compile')
 
     const result = compile(tsFiles, dir)
-    if (gc) {
-      gc()
-    }
+
     if (result.emitSkipped) {
       console.warn(`NOMERGE Failed to compile ${pkgname}@${version}`)
       continue
