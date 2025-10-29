@@ -5,7 +5,7 @@ import { glob, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { env } from 'node:process'
-import { pipeline } from 'node:stream'
+import { pipeline } from 'node:stream/promises'
 import pacote from 'pacote'
 import { createProgram, ModuleKind } from 'typescript'
 import { config } from '../src/config.ts'
@@ -79,8 +79,8 @@ for (const namespaceDir of await readdir(config.genDir)) {
     const tmpTarPath = join(tmpdir(), `${pkgname.replace('/', '-')}.tgz`)
     await pacote.tarball.stream(
       dir,
-      async tarStream => {
-        pipeline(tarStream, createWriteStream(tmpTarPath))
+      async transform => {
+        await pipeline(transform, createWriteStream(tmpTarPath))
       },
       { Arborist }
     )
