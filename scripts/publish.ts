@@ -41,16 +41,16 @@ function compile(filenames: string[], outdir: string) {
   program.emit()
 }
 
-for (const namespace of await readdir(config.genDir)) {
-  for (const name of await readdir(join(config.genDir, namespace))) {
+for (const namespaceDir of await readdir(config.genDir)) {
+  for (const nameDir of await readdir(join(config.genDir, namespaceDir))) {
+    const namespace = namespaceDir.toLowerCase()
+    const name = nameDir.toLowerCase()
     // add `name-` prefix to follow the official cdktf convension.
     // if namespace is same as name, do not duplicate the name.
     const pkgname = `@cdktf-community/${[
       'provider',
       ...(namespace === name ? [name] : [namespace, name])
-    ]
-      .join('-')
-      .toLowerCase()}`
+    ].join('-')}`
 
     const dir = join(config.genDir, namespace, name)
 
