@@ -38,7 +38,7 @@ function compile(filenames: string[], outdir: string) {
     outDir: join(outdir, 'dist'),
     noCheck: true
   })
-  program.emit()
+  return program.emit()
 }
 
 for (const namespaceDir of await readdir(config.genDir)) {
@@ -52,14 +52,17 @@ for (const namespaceDir of await readdir(config.genDir)) {
       ...(namespace === name ? [name] : [namespace, name])
     ].join('-')}`
 
-    const dir = join(config.genDir, namespace, name)
+    const dir = join(config.genDir, namespaceDir, nameDir)
 
     const version = await parseVersion(join(dir, 'versions.json'))
 
-    try {
-      compile(await Array.fromAsync(glob(join(dir, '**/*.ts'))), dir)
-    } catch {
-      console.warn(`Failed to compile ${pkgname}`)
+    const result = compile(
+      await Array.fromAsync(glob(join(dir, '**/*.ts'))),
+      dir
+    )
+    if (result.emitSkipped) {
+      console.warn(`NOMERGE Failed to compile ${pkgname}@${version}`)
+      continue
     }
 
     await writeFile(
