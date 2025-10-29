@@ -159,7 +159,6 @@ for (const namespaceDir of await readdir(config.genDir)) {
     console.log(`[PKG] Done in ${pkgElapsed}s`)
     logMem('after-publish')
   }
-  break;
 }
 
 console.log(`[DONE] Total time ${(Date.now() - startTime) / 1000}s`)
