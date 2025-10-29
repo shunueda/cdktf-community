@@ -2,6 +2,7 @@ import { Arborist } from '@npmcli/arborist'
 import { publish } from 'libnpmpublish'
 import { createWriteStream, type PathLike } from 'node:fs'
 import { glob, readdir, readFile, writeFile } from 'node:fs/promises'
+import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { env } from 'node:process'
@@ -11,6 +12,8 @@ import { createProgram, ModuleKind } from 'typescript'
 import { config } from '../src/config.ts'
 import { createPackageJson } from '../src/package-json.ts'
 import { semverStringSchema } from '../src/schema.ts'
+
+const require = createRequire(import.meta.url)
 
 function logMem(label: string) {
   const mem = process.memoryUsage()
