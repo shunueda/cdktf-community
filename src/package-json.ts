@@ -1,11 +1,11 @@
+import type { PackageJSON } from '@npm/types'
 import type { PathLike } from 'node:fs'
-import type { PackageJson } from 'type-fest'
 
 export function createPackageJson(
   name: string,
   version: string,
   directory: PathLike
-): PackageJson {
+): PackageJSON {
   return {
     name,
     version,
@@ -31,5 +31,5 @@ export function createPackageJson(
       directory: directory.toString()
     },
     files: ['dist']
-  } satisfies PackageJson
+  } satisfies PackageJSON
 }
