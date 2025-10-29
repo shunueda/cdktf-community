@@ -49,27 +49,25 @@ function compile(filenames: string[], outdir: string) {
     noCheck: true
   })
   const result = program.emit()
-  try {
-    const sourceFiles = program.getSourceFiles()
-    for (const sf of sourceFiles) {
-      ;(sf as any).text = ''
-      ;(sf as any).statements = []
-      ;(sf as any).locals = undefined
-      ;(sf as any).symbol = undefined
-      ;(sf as any).imports = undefined
-      ;(sf as any).identifiers = undefined
-      ;(sf as any).resolvedModules = undefined
-    }
-    const checker = program.getTypeChecker()
-    if (checker) {
-      ;(checker as any).symbolTable = undefined
-      ;(checker as any).typeCache = undefined
-      ;(checker as any).resolvedModules = undefined
-    }
-  } catch (err) {
-    console.warn('[WARN] AST cleanup failed:', err)
+  for (const sf of program.getSourceFiles()) {
+    ;(sf as any).text = ''
+    ;(sf as any).statements = []
+    ;(sf as any).locals = undefined
+    ;(sf as any).symbol = undefined
+    ;(sf as any).imports = undefined
+    ;(sf as any).identifiers = undefined
+    ;(sf as any).resolvedModules = undefined
   }
+  try {
+    const checker = program.getTypeChecker()
+    ;(checker as any).symbolTable = undefined
+    ;(checker as any).typeCache = undefined
+    ;(checker as any).resolvedModules = undefined
+  } catch {}
+  logMem('before-delete-cache')
+  delete require.cache[require.resolve('typescript')]
   global.gc?.()
+  logMem('after-delete-cache')
   return result
 }
 
