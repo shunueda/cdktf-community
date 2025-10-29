@@ -22,7 +22,7 @@ jobs:
       - run: npm run publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_OPTIONS: '--max-old-space-size=12288'
+          NODE_OPTIONS: '--max-old-space-size=8192'
       - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'chore(cron): update'

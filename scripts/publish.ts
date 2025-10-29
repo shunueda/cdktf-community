@@ -49,6 +49,7 @@ function compile(filenames: string[], outdir: string) {
     sourceMap: true,
     rootDir: join(outdir, 'providers'),
     outDir: join(outdir, 'dist'),
+    incremental: false,
     noCheck: true
   })
   const result = program.emit()
