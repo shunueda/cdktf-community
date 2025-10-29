@@ -4,6 +4,10 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * *' # every day at midnight
+  # NOMERGE
+  push:
+    branches:
+      - feat/publish-to-npm
 
 jobs:
   update:
@@ -15,6 +19,8 @@ jobs:
       - uses: ./.github/actions/setup-node
       - uses: ./.github/actions/setup-terraform
       - run: npm run publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'chore(cron): update'
