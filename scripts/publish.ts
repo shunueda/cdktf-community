@@ -1,9 +1,11 @@
 import { Arborist } from '@npmcli/arborist'
 import { publish } from 'libnpmpublish'
-import { type PathLike } from 'node:fs'
+import { createWriteStream, type PathLike } from 'node:fs'
 import { glob, readdir, readFile, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { env } from 'node:process'
+import { pipeline } from 'node:stream'
 import pacote from 'pacote'
 import { createProgram, ModuleKind } from 'typescript'
 import { config } from '../src/config.ts'
@@ -74,7 +76,18 @@ for (const namespaceDir of await readdir(config.genDir)) {
       continue
     }
     const manifest = await pacote.manifest(dir)
-    const tarData = await pacote.tarball(dir, { Arborist })
+    const tmpTarPath = join(tmpdir(), `${pkgname.replace('/', '-')}.tgz`)
+    await pacote.tarball.stream(
+      dir,
+      async tarStream => {
+        pipeline(tarStream, createWriteStream(tmpTarPath))
+      },
+      { Arborist }
+    )
+    const tarData = await readFile(tmpTarPath)
+    await publish(manifest as any, tarData, {
+      forceAuth: { token: env.NPM_TOKEN }
+    })
     // FIXME - type is wrong in libnpmpublish
     try {
       await publish(manifest as any, tarData, {
