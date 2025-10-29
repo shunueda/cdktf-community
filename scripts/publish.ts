@@ -53,7 +53,5 @@ for (const namespace of await readdir(config.genDir)) {
       join(dir, 'tsconfig.json'),
       JSON.stringify(createTsconfigJson(name))
     )
-    break
   }
-  break
 }
