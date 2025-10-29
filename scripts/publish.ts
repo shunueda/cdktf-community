@@ -74,9 +74,7 @@ for (const namespaceDir of await readdir(config.genDir)) {
     console.log(`[PKG] ${pkgname}@${version}`)
 
     const tsFiles = await Array.fromAsync(
-      glob(join(dir, '**/*.ts'), {
-        ignore: ['**/dist/**', '**/node_modules/**']
-      })
+      glob(join(dir, '**/*.ts'))
     )
     console.log(`[PKG] Found ${tsFiles.length} TypeScript files`)
     logMem('before-compile')
