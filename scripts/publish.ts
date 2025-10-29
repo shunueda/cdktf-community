@@ -1,11 +1,11 @@
 import { Arborist } from '@npmcli/arborist'
-import { build } from 'esbuild'
 import { publish } from 'libnpmpublish'
 import { type PathLike } from 'node:fs'
 import { glob, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { env } from 'node:process'
 import pacote from 'pacote'
+import { createProgram, ModuleKind } from 'typescript'
 import { config } from '../src/config.ts'
 import { createPackageJson } from '../src/package-json.ts'
 import { semverStringSchema } from '../src/schema.ts'
@@ -29,6 +29,18 @@ async function isVersionPublished(
   }
 }
 
+function compile(filenames: string[], outdir: string) {
+  const program = createProgram(filenames, {
+    module: ModuleKind.ES2022,
+    declaration: true,
+    sourceMap: true,
+    declarationMap: true,
+    outDir: join(outdir, 'dist'),
+    noCheck: true
+  })
+  program.emit()
+}
+
 for (const namespace of await readdir(config.genDir)) {
   for (const name of await readdir(join(config.genDir, namespace))) {
     // add `name-` prefix to follow the official cdktf convension.
@@ -45,15 +57,7 @@ for (const namespace of await readdir(config.genDir)) {
     const version = await parseVersion(join(dir, 'versions.json'))
 
     try {
-      await build({
-        entryPoints: await Array.fromAsync(glob(join(dir, '**/*.ts'))),
-        outdir: join(dir, 'dist'),
-        bundle: false,
-        minify: false,
-        sourcemap: false,
-        treeShaking: false,
-        sourcesContent: false
-      })
+      compile(await Array.fromAsync(glob(join(dir, '**/*.ts'))), dir)
     } catch {
       console.warn(`Failed to compile ${pkgname}`)
     }
@@ -68,6 +72,7 @@ for (const namespace of await readdir(config.genDir)) {
     }
     const manifest = await pacote.manifest(dir)
     const tarData = await pacote.tarball(dir, { Arborist })
+    break
     await publish(manifest as any, tarData, {
       provenance: true,
       forceAuth: {
