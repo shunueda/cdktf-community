@@ -73,13 +73,20 @@ for (const namespaceDir of await readdir(config.genDir)) {
     const version = await parseVersion(join(dir, 'versions.json'))
     console.log(`[PKG] ${pkgname}@${version}`)
 
-    const tsFiles = await Array.fromAsync(
-      glob(join(dir, '**/*.ts'))
-    )
+    if (await isVersionPublished(pkgname, version)) {
+      console.log(`[PKG] already published, skipping`)
+      continue
+    }
+    logMem('after-isPublished')
+
+    const tsFiles = await Array.fromAsync(glob(join(dir, '**/*.ts')))
     console.log(`[PKG] Found ${tsFiles.length} TypeScript files`)
     logMem('before-compile')
 
     const result = compile(tsFiles, dir)
+    if (gc) {
+      gc()
+    }
     if (result.emitSkipped) {
       console.warn(`NOMERGE Failed to compile ${pkgname}@${version}`)
       continue
@@ -91,12 +98,6 @@ for (const namespaceDir of await readdir(config.genDir)) {
       JSON.stringify(createPackageJson(pkgname, version, dir))
     )
     logMem('after-package-json')
-
-    if (await isVersionPublished(pkgname, version)) {
-      console.log(`[PKG] already published, skipping`)
-      continue
-    }
-    logMem('after-isPublished')
 
     const manifest = await pacote.manifest(dir)
     logMem('after-manifest')
