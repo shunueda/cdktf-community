@@ -66,13 +66,13 @@ for (const namespace of await readdir(config.genDir)) {
     if (await isVersionPublished(pkgname, version)) {
       continue
     }
-    console.log('Publishing', pkgname, version)
     const manifest = await pacote.manifest(dir)
     const tarData = await pacote.tarball(dir, { Arborist })
-    console.log(tarData)
     await publish(manifest as any, tarData, {
       provenance: true,
-      token: env.NPM_TOKEN
+      forceAuth: {
+        token: env.NPM_TOKEN
+      }
     })
     break
   }
