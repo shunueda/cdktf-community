@@ -9,21 +9,21 @@ export function createPackageJson(
   return {
     name,
     version,
-    scripts: {
-      build: 'tsc'
-    },
     type: 'module',
     exports: {
       '.': {
         import: './dist/index.js',
-        default: './dist/index.js',
-        types: './dist/index.d.ts'
+        types: './dist/index.d.ts',
+        require: './dist/index.js'
       },
       './*': {
         import: './dist/*/index.js',
-        default: './dist/*/index.js',
-        types: './dist/*/index.d.ts'
-      }
+        types: './dist/*/index.d.ts',
+        require: './dist/*/index.js'
+      },
+      './constraints.json': './constraints.json',
+      './versions.json': './versions.json',
+      './package.json': './package.json'
     },
     repository: {
       type: 'git',

@@ -1,9 +1,6 @@
 {
   "name": "cdktf-community",
   "type": "module",
-  "workspaces": [
-    "gen/**"
-  ],
   "scripts": {
     "build": "tsc",
     "format": "prettier . --write",
@@ -13,6 +10,7 @@
   "dependencies": {
     "@cdktf/cli-core": "^0.21.0",
     "@cdktf/commons": "^0.21.0",
+    "esbuild": "^0.25.11",
     "zod": "^4.1.12"
   },
   "devDependencies": {

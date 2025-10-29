@@ -1,5 +1,6 @@
-import { readdir, readFile, writeFile } from 'fs/promises'
+import { build } from 'esbuild'
 import { type PathLike } from 'node:fs'
+import { glob, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { config } from '../src/config.ts'
 import { createPackageJson } from '../src/package-json.ts'
@@ -28,6 +29,20 @@ for (const namespace of await readdir(config.genDir)) {
 
     const version = await parseVersion(join(dir, 'versions.json'))
 
+    try {
+      await build({
+        entryPoints: await Array.fromAsync(glob(join(dir, '**/*.ts'))),
+        outdir: join(dir, 'dist'),
+        bundle: false,
+        minify: false,
+        sourcemap: false,
+        treeShaking: false,
+        sourcesContent: false
+      })
+    } catch {
+      console.warn(`Failed to compile ${pkgname}`)
+    }
+
     await writeFile(
       join(dir, 'package.json'),
       JSON.stringify(
@@ -38,5 +53,7 @@ for (const namespace of await readdir(config.genDir)) {
       join(dir, 'tsconfig.json'),
       JSON.stringify(createTsconfigJson(name))
     )
+    break
   }
+  break
 }

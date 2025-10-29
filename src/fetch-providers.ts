@@ -5,7 +5,7 @@ const base = 'https://registry.terraform.io/v2/providers'
 const pageSize = 100 // maximum allowed by the API
 
 // Official providers get prebuilt npm packages by default
-const tiers = ['partner,community']
+const tiers = ['partner', 'community']
 
 // only fetch community providers with more than 500k downloads. Pulled out of thin air.
 const communityTierDownloadThreshold = 500_000

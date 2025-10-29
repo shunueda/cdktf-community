@@ -22,7 +22,8 @@ export function createTsconfigJson(name: string): Readonly<TsConfigJson> {
       incremental: false,
       lib: ['es2022'],
       rootDir: `providers/${name}`,
-      outDir: 'dist'
+      outDir: 'dist',
+      noCheck: true
     }
   }
 }
