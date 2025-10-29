@@ -73,11 +73,15 @@ for (const namespace of await readdir(config.genDir)) {
     const manifest = await pacote.manifest(dir)
     const tarData = await pacote.tarball(dir, { Arborist })
     // FIXME - type is wrong in libnpmpublish
-    await publish(manifest as any, tarData, {
-      provenance: true,
-      forceAuth: {
-        token: env.NPM_TOKEN
-      }
-    })
+    try {
+      await publish(manifest as any, tarData, {
+        provenance: true,
+        forceAuth: {
+          token: env.NPM_TOKEN
+        }
+      })
+    } catch {
+      console.warn(`NOMERGE Failed to publish ${pkgname}@${version}`)
+    }
   }
 }
