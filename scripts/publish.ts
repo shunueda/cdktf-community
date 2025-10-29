@@ -78,6 +78,7 @@ for (const namespaceDir of await readdir(config.genDir)) {
           token: env.NPM_TOKEN
         }
       })
+      process.exit(0)
     } catch (e) {
       console.warn(`⚠️ Failed to publish ${pkgname}@${version}: ${e}`)
     }
