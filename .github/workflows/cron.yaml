@@ -9,15 +9,12 @@ on:
     branches:
       - feat/publish-to-npm
 
-permissions:
-  contents: read
-  id-token: write
-
 jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v5.0.0
       - uses: ./.github/actions/setup-node
